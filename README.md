@@ -1,4 +1,4 @@
-# Restaurant Finder Using Yelp
+# Restaurant Finder Using Yelp 🔍
 A Python application that allows users to enter a city and get restaurant suggestions based on their input, powered by the Yelp API.
 
 ## Description
@@ -14,10 +14,7 @@ dotenv: To manage environment variables securely
 
 1. Clone the repository
 2. Install required dependencies - `cd restaurant-finder-using-yelp` and `pip install -r requirements.txt`
-3. Get Yelp API Key:
-<ul>- Go to the Yelp Developer Portal</ul>
-<ul>- Create a new app to get API Key</ul>
-<ul>- Add the API Key to .env file `YELP_API_KEY={your_yelp_api_key_here}` </ul>
+3. Get Yelp API Key: Go to the Yelp Developer Portal and Create a new app to get API Key. Add the API Key to .env file - `YELP_API_KEY={your_yelp_api_key_here}` </ul>
 4. Run the application: `python main.py`
 
 
