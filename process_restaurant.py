@@ -58,14 +58,14 @@ def filter_by_price(price_pref):
     f.close()
 
 
-def all_filters(cuisine, rating):
-    restaurant_options = []
+def all_filters(cuisine, rating, price):
+    restaurant_options = {}
     f = open('sampleData.json')
     data = json.load(f)
 
     for restaurant in data['businesses']:
         matches_cuisine = False
-        # matches_price = False
+        matches_price = False
         matches_rating = False
 
         for categories in restaurant['categories']:
@@ -76,15 +76,20 @@ def all_filters(cuisine, rating):
         if restaurant['rating'] >= float(rating):
                 matches_rating = True
             
-        # try:
-        #     if restaurant['price'] == price:
-        #         matches_price = True
-        # except KeyError:
-        #     pass
+        try:
+            if restaurant['price'] == price or restaurant['price'] == '':
+                matches_price = True
+        except KeyError:
+            pass
 
         
-        if matches_cuisine and matches_rating:
-            restaurant_options.append(restaurant['name'])
+        if matches_cuisine and matches_rating and matches_price:
+            restaurant_options[restaurant['name']] = {
+                'address': restaurant['location']['display_address'],
+                'phone': restaurant['phone'],
+                'rating': restaurant['rating'],
+                'price': restaurant.get('price', 'N/A')
+            }
 
     print(restaurant_options)
-    f.close();
+    f.close()
