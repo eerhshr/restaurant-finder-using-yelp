@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import process_restaurant
-import restaurant_scrapper
-import json
+import restaurant_finder
+# import json
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def index():
 
     if request.method == "POST":
         location = request.form["location"]
-        restaurant_scrapper.get_data(location)
+        restaurant_finder.get_data(location)
 
         # cuisines = process_restaurant.get_available_cuisines()
         # cuisine = request.form.get("cuisine")

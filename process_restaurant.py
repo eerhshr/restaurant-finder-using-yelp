@@ -1,6 +1,5 @@
 import json
 
-
 def get_available_cuisines():
     cuisines = []
     f = open('sampleData.json')
