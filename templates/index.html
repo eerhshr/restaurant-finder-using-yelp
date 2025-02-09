@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a place to eat!</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 700px; margin: auto; padding: 20px; }
+        input, select, button { padding: 10px; margin: 10px; }
+        .card { border: 1px solid #000; padding: 15px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Restaurant Finder – Eat What You Love ❤️🌍</h2>
+       
+        <p>Say Goodbye to “Where Should We Eat? One Search, Endless Delicious Options!</p>
+        <form method="POST">
+            <input type="text" name="location" placeholder="Enter Location" required><br>
+            <input type="text" name="rating" placeholder="Rating"><br>
+            <input type="text" name="price" placeholder="Price Level ($, $$, $$$)"><br>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if restaurants %}
+            <h3>Restaurants based on your search</h3>
+            {% for name, details in restaurants.items() %}
+                <div class="card">
+                    <h4>{{ name }}</h4>
+                    <p>Rating: {{ details['rating'] }} ⭐️</p>
+                    <p>Price: {{ details.price }}</p>
+                    <p>Address: {{ ' '.join(details['address']) }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
