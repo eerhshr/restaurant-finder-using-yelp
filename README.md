@@ -18,7 +18,5 @@ dotenv: To manage environment variables securely
 4. Run the application: `python main.py`
 
 
-
-
-
+© eershr. All Rights Reserved.
 
